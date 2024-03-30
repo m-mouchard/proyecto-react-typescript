@@ -7,6 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Boton></Boton>
+        <ListaCosas></ListaCosas>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -21,6 +23,33 @@ function App() {
       </header>
     </div>
   );
+
+  function ListaCosas() {
+    const products = [
+      { title: 'Cabbage', id: 1 },
+      { title: 'Garlic', id: 2 },
+      { title: 'Apple', id: 3 },
+    ];
+    const listItems = products.map(product =>
+      <li key={product.id}>
+        {product.title}
+      </li>
+    );
+    
+    return (
+      <ul>{listItems}</ul>
+    );
+  }
+  
+  function Boton() {
+    function pulsarBoton() {
+      alert("Hola, vete a dormir");
+    }
+    return(
+      <button onClick={pulsarBoton} className='botonPulsaAqui' >Pulsa aquí</button>
+    );
+  }
+    
 }
 
 export default App;
