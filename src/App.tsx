@@ -1,25 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Boton></Boton>
-        <ListaCosas></ListaCosas>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
+        <br/>
+        <br/>
+        <Boton></Boton>
+        <ListaCosas></ListaCosas>
         </p>
-        <a
-          className="App-link"
+        <a className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          rel="noopener noreferrer">Learn React</a>
       </header>
     </div>
   );
@@ -42,14 +41,17 @@ function App() {
   }
   
   function Boton() {
+    const [count, setCount] = useState(0);
     function pulsarBoton() {
-      alert("Hola, vete a dormir");
+      alert(`Hola, vete a dormir por ${count} vez`);
+      setCount(count+1);
     }
     return(
       <button onClick={pulsarBoton} className='botonPulsaAqui' >Pulsa aquí</button>
-    );
-  }
-    
+      );
+    }
+ 
+  
 }
 
 export default App;
