@@ -4,6 +4,13 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
+  
+  const [count, setCount] = useState(0);
+
+  function pulsarBoton() {
+    setCount(count+1);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -12,7 +19,8 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         <br/>
         <br/>
-        <Boton></Boton>
+        <Boton/>
+        <Boton/>
         <ListaCosas></ListaCosas>
         </p>
         <a className="App-link"
@@ -41,13 +49,16 @@ function App() {
   }
   
   function Boton() {
-    const [count, setCount] = useState(0);
-    function pulsarBoton() {
-      alert(`Hola, vete a dormir por ${count} vez`);
-      setCount(count+1);
-    }
+    //Para que cada botón "Recuerde" su contador importamos la función useState de la librería de react import { useState } from 'react';
+    //entonces ya podemos declarar la función useState que devuelve el estado actual "count" y la función para actualizar el estado setCount
+    //Si movemos esta línea de código de abajo al componente App, el estado será igual para ambos botones. 
+    //const [count, setCount] = useState(0);
+    
     return(
+      <div>
       <button onClick={pulsarBoton} className='botonPulsaAqui' >Pulsa aquí</button>
+      <p>Vete a dormir por {count} vez</p>
+      </div>
       );
     }
  
